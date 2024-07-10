@@ -6,9 +6,11 @@ export const runtime = "edge";
 import Image from "next/image";
 import PlusTrackListing from "@/app/components/PlusTrackListing";
 import SignTrackListing from "@/app/components/SignTrackListing";
-import Gradient from "@/app/components/Gradient";
+import GradientBackground from "@/app/components/GradientBackground";
 import TourList from "@/app/components/TourList";
-import Countdown from "@/app/components/Countdown";
+import Crosshairs from "@/app/components/Crosshairs";
+import TopRightTitles from "@/app/components/TopRightTitles";
+import BottomLeftInfo from "@/app/components/BottomLeftInfo";
 
 import Client from "shopify-buy";
 import type { Product } from "shopify-buy";
@@ -48,7 +50,8 @@ export default function Home() {
 
   return (
     <main className="flex min-h-screen flex-col items-center pt-4 md:pt-24 bg-[#48494b] overflow-hidden cursor-none">
-      <Gradient />
+      {/* FIXED CONTENT */}
+      <GradientBackground />
       <SignTrackListing
         opacity={
           hoveredAlbum == "plus"
@@ -67,51 +70,11 @@ export default function Home() {
             : Math.min(1, 0.25 + (position.x / 75) * 0.75)
         }
       />
-      <div className="fixed bottom-0 left-0 m-2 hidden md:block">
-        <p className="font-mono text-white">
-          MOUSE X: {position.x >= 10 ? null : "0"}
-          {position.x.toFixed(2)}%
-        </p>
-        <p className="font-mono text-white">
-          MOUSE Y: {position.y >= 10 ? null : "0"}
-          {position.y.toFixed(2)}%
-        </p>
-        <Countdown targetDate="2024-08-01T00:00:00" />
-      </div>
-      <div className="relative md:fixed top-0 right-0 m-2" dir="rtl">
-        <h2 className="z-10 text-5xl font-semibold text-white tracking-[10px]">
-          <span
-            className="duration-100"
-            style={{
-              opacity:
-                hoveredAlbum == "plus"
-                  ? 0.25
-                  : hoveredAlbum == "sign"
-                  ? 1
-                  : Math.max(0.25, 1 - position.x / 75),
-            }}
-          >
-            SIGN
-          </span>
-          <span>/</span>
-          <span
-            className="duration-100"
-            style={{
-              opacity:
-                hoveredAlbum == "sign"
-                  ? 0.25
-                  : hoveredAlbum == "plus"
-                  ? 1
-                  : Math.min(1, 0.25 + (position.x / 75) * 0.75),
-            }}
-          >
-            PLUS
-          </span>
-        </h2>
-        <h2 className="pt-[0.1rem] z-10 text-2xl font-semibold text-white leading-[1rem] tracking-[11px]">
-          RELEASE / TOUR
-        </h2>
-      </div>
+      <BottomLeftInfo position={position} />
+      <TopRightTitles position={position} hoveredAlbum={hoveredAlbum} />
+      <Crosshairs position={position} />
+
+      {/* SCROLL CONTENT */}
 
       <div className="relative z-[10] flex place-items-center flex-col pt-[2rem] md:pt-[10rem]">
         <Image
@@ -183,21 +146,6 @@ export default function Home() {
             ))
           : null}
       </div>
-
-      <div
-        style={{
-          top: `${position.y}%`,
-        }}
-        id="crosshair-x"
-        className="select-none pointer-events-none z-[100] left-0 fixed w-screen h-[1px] bg-white"
-      ></div>
-      <div
-        style={{
-          left: `${position.x}%`,
-        }}
-        id="crosshair-y"
-        className="select-none pointer-events-none z-[100] top-0 fixed w-[1px] h-screen	bg-white"
-      ></div>
     </main>
   );
 }
