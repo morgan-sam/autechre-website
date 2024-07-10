@@ -1,5 +1,6 @@
 // components/MousePosition.js
 "use client";
+export const runtime = "edge";
 
 import { useState, useEffect } from "react";
 

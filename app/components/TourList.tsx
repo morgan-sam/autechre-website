@@ -1,3 +1,5 @@
+export const runtime = "edge";
+
 const TourList = () => {
   const listItemClass = `flex flex-col w-full gap-x-4 md:flex-row`;
   const dateClass = `text-white font-bold `;

@@ -1,3 +1,5 @@
+export const runtime = "edge";
+
 const Gradient = () => {
   return (
     <div className="fixed top-0 left-0 bottom-0 right-0 max-w-screen max-h-screen overflow-hidden blur-[10px] brightness-[50%]">

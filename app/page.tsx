@@ -1,6 +1,8 @@
 "use client";
 import { useState, useEffect } from "react";
 
+export const runtime = "edge";
+
 import Image from "next/image";
 import PlusTrackListing from "@/app/components/PlusTrackListing";
 import SignTrackListing from "@/app/components/SignTrackListing";
