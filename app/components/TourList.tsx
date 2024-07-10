@@ -1,5 +1,5 @@
 const TourList = () => {
-  const listItemClass = `flex w-full gap-x-4 `;
+  const listItemClass = `flex flex-col w-full gap-x-4 md:flex-row`;
   const dateClass = `text-white font-bold `;
   const locationClass = `text-white`;
   const venueClass = `text-white font-light`;

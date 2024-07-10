@@ -24,7 +24,10 @@ import { useState, useEffect } from "react";
 const PlusTrackListing = () => {
   const [info, setInfo] = useState(plusInfo);
   return (
-    <ol className="fixed bottom-0 right-0 flex flex-col m-2" dir="rtl">
+    <ol
+      className="fixed bottom-0 right-0 flex flex-col m-2 opacity-25 md:opacity-100"
+      dir="rtl"
+    >
       {info.map((el, i) =>
         el[0] != null ? (
           <li

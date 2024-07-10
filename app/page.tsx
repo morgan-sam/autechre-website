@@ -25,11 +25,11 @@ export default function Home() {
   }, []);
 
   return (
-    <main className="flex min-h-screen flex-col items-center pt-24 bg-[#48494b] overflow-hidden cursor-none">
+    <main className="flex min-h-screen flex-col items-center pt-4 md:pt-24 bg-[#48494b] overflow-hidden cursor-none">
       <Gradient />
       <PlusTrackListing />
       <SignTrackListing />
-      <div className="fixed bottom-0 left-0 m-2">
+      <div className="fixed bottom-0 left-0 m-2 hidden md:block">
         <p className="font-mono text-white">
           MOUSE X: {position.x >= 10 ? null : "0"}
           {position.x.toFixed(2)}%
@@ -39,7 +39,7 @@ export default function Home() {
           {position.y.toFixed(2)}%
         </p>
       </div>
-      <div className="fixed top-0 right-0 m-2" dir="rtl">
+      <div className="relative md:fixed top-0 right-0 m-2" dir="rtl">
         <h2 className="z-10 text-5xl font-semibold text-white tracking-[10px]">
           SIGN / PLUS
         </h2>
@@ -48,7 +48,7 @@ export default function Home() {
         </h2>
       </div>
 
-      <div className="relative z-[10] flex place-items-center flex-col pt-[10rem]">
+      <div className="relative z-[10] flex place-items-center flex-col pt-[2rem] md:pt-[10rem]">
         <Image
           style={
             {
