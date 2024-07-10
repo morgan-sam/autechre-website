@@ -6,6 +6,8 @@ import PlusTrackListing from "@/app/components/PlusTrackListing";
 import SignTrackListing from "@/app/components/SignTrackListing";
 import Gradient from "@/app/components/Gradient";
 import TourList from "@/app/components/TourList";
+import Countdown from "@/app/components/Countdown";
+
 import Client from "shopify-buy";
 import type { Product } from "shopify-buy";
 
@@ -72,6 +74,7 @@ export default function Home() {
           MOUSE Y: {position.y >= 10 ? null : "0"}
           {position.y.toFixed(2)}%
         </p>
+        <Countdown targetDate="2024-08-01T00:00:00" />
       </div>
       <div className="relative md:fixed top-0 right-0 m-2" dir="rtl">
         <h2 className="z-10 text-5xl font-semibold text-white tracking-[10px]">
