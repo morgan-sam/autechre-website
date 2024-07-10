@@ -5,9 +5,10 @@ const Gradient = () => {
         xmlns="http://www.w3.org/2000/svg"
         version="1.1"
         viewBox="0 0 1920 1080"
+        preserveAspectRatio="none"
         width="1920"
         height="1080"
-        className="aspect-auto min-w-screen min-h-screen"
+        className="aspect-auto min-w-screen min-h-screen w-screen h-screen"
       >
         <defs>
           <linearGradient
