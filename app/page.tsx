@@ -39,6 +39,14 @@ export default function Home() {
           {position.y.toFixed(2)}%
         </p>
       </div>
+      <div className="fixed top-0 right-0 m-2" dir="rtl">
+        <h2 className="z-10 text-5xl font-semibold text-white tracking-[10px]">
+          SIGN / PLUS
+        </h2>
+        <h2 className="pt-[0.1rem] z-10 text-2xl font-semibold text-white leading-[1rem] tracking-[11px]">
+          RELEASE / TOUR
+        </h2>
+      </div>
 
       <div className="relative z-[10] flex place-items-center flex-col pt-[10rem]">
         <Image
@@ -78,14 +86,6 @@ export default function Home() {
       />
 
       <TourList />
-
-      <div className="pt-[2rem] mb-32 grid text-center lg:mb-0 lg:w-full lg:max-w-2xl lg:grid-cols-5">
-        <h2 className="mb-3 text-2xl font-semibold text-white">SIGN</h2>
-        <h2 className="mb-3 text-2xl font-semibold text-white">/</h2>
-        <h2 className="mb-3 text-2xl font-semibold text-white">AUTECHRE</h2>
-        <h2 className="mb-3 text-2xl font-semibold text-white">/</h2>
-        <h2 className="mb-3 text-2xl font-semibold text-white">PLUS</h2>
-      </div>
 
       <div
         style={{

@@ -2,10 +2,10 @@ const TourList = () => {
   const listItemClass = `flex w-full gap-x-4 `;
   const dateClass = `text-white font-bold `;
   const locationClass = `text-white`;
-  const venueClass = `text-white`;
+  const venueClass = `text-white font-light`;
 
   return (
-    <ol className="pt-[3rem] flex flex-col z-10 gap-y-2">
+    <ol className="pt-[3.5rem] mb-24  flex flex-col z-10 gap-y-2">
       <li className={listItemClass}>
         <span className={dateClass}>MONDAY 30 SEPTEMBER</span>
         <span className={locationClass}>OSLO, NORWAY</span>
