@@ -5,6 +5,7 @@ import Image from "next/image";
 import PlusTrackListing from "@/app/components/PlusTrackListing";
 import SignTrackListing from "@/app/components/SignTrackListing";
 import Gradient from "@/app/components/Gradient";
+import TourList from "@/app/components/TourList";
 
 export default function Home() {
   const [position, setPosition] = useState({ x: 0, y: 0 });
@@ -28,7 +29,7 @@ export default function Home() {
       <Gradient />
       <PlusTrackListing />
       <SignTrackListing />
-      <div className="absolute bottom-0 left-0 m-2">
+      <div className="fixed bottom-0 left-0 m-2">
         <p className="font-mono text-white">
           MOUSE X: {position.x >= 10 ? null : "0"}
           {position.x.toFixed(2)}%
@@ -76,6 +77,8 @@ export default function Home() {
         priority
       />
 
+      <TourList />
+
       <div className="pt-[2rem] mb-32 grid text-center lg:mb-0 lg:w-full lg:max-w-2xl lg:grid-cols-5">
         <h2 className="mb-3 text-2xl font-semibold text-white">SIGN</h2>
         <h2 className="mb-3 text-2xl font-semibold text-white">/</h2>
@@ -89,14 +92,14 @@ export default function Home() {
           top: `${position.y}%`,
         }}
         id="crosshair-x"
-        className="select-none z-[100] left-0 absolute w-screen	h-[1px] bg-white"
+        className="select-none z-[100] left-0 fixed w-screen	h-[1px] bg-white"
       ></div>
       <div
         style={{
           left: `${position.x}%`,
         }}
         id="crosshair-y"
-        className="select-none z-[100] top-0 absolute w-[1px] h-screen	bg-white"
+        className="select-none z-[100] top-0 fixed w-[1px] h-screen	bg-white"
       ></div>
     </main>
   );

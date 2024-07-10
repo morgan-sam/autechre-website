@@ -1,6 +1,6 @@
 const Gradient = () => {
   return (
-    <div className="absolute top-0 left-0 bottom-0 right-0 max-w-screen max-h-screen overflow-hidden blur-[10px]">
+    <div className="fixed top-0 left-0 bottom-0 right-0 max-w-screen max-h-screen overflow-hidden blur-[10px] brightness-[50%]">
       <svg
         xmlns="http://www.w3.org/2000/svg"
         version="1.1"
