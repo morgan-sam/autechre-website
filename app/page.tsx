@@ -145,7 +145,7 @@ export default function Home() {
 
       <TourList />
 
-      <div className="flex flex-row gap-8 mb-40 group">
+      <div className="flex flex-col md:flex-row gap-8 mb-40 group">
         {products.length > 0
           ? products.map((product, i) => (
               <a
