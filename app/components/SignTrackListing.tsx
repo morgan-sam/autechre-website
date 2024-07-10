@@ -27,13 +27,18 @@ import { useState, useEffect } from "react";
 
 type SignTrackListingProps = {
   opacity: number;
+  onMobile: boolean;
 };
 
-const SignTrackListing: React.FC<SignTrackListingProps> = ({ opacity }) => {
+const SignTrackListing: React.FC<SignTrackListingProps> = ({
+  opacity,
+  onMobile,
+}) => {
   const [info, setInfo] = useState(signInfo);
+
   return (
     <ol
-      style={{ opacity: opacity }}
+      style={{ opacity: onMobile ? 0.25 : opacity }}
       className={`fixed top-0 left-0 flex flex-col m-2 opacity-25 md:opacity-100 md:mt-2 duration-100`}
     >
       {info.map((el, i) =>

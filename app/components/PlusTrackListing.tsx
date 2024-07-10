@@ -24,13 +24,17 @@ import { useState, useEffect } from "react";
 
 type PlusTrackListingProps = {
   opacity: number;
+  onMobile: boolean;
 };
 
-const PlusTrackListing: React.FC<PlusTrackListingProps> = ({ opacity }) => {
+const PlusTrackListing: React.FC<PlusTrackListingProps> = ({
+  opacity,
+  onMobile,
+}) => {
   const [info, setInfo] = useState(plusInfo);
   return (
     <ol
-      style={{ opacity: opacity }}
+      style={{ opacity: onMobile ? 0.25 : opacity }}
       className={`fixed bottom-0 right-0 flex flex-col m-2 opacity-25 md:opacity-100 duration-100`}
       dir="rtl"
     >

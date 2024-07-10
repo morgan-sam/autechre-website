@@ -49,11 +49,20 @@ export default function Home() {
     });
   }, []);
 
+  const [onMobile, setOnMobile] = useState(false);
+  useEffect(() => {
+    const handleResize = () => setOnMobile(window.innerWidth < 768);
+    handleResize();
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
+
   return (
     <main className="flex min-h-screen flex-col items-center pt-4 md:pt-24 bg-[#48494b] overflow-hidden cursor-none">
       {/* FIXED CONTENT */}
       <GradientBackground />
       <SignTrackListing
+        onMobile={onMobile}
         opacity={
           hoveredAlbum == "plus"
             ? 0.25
@@ -63,6 +72,7 @@ export default function Home() {
         }
       />
       <PlusTrackListing
+        onMobile={onMobile}
         opacity={
           hoveredAlbum == "sign"
             ? 0.25
@@ -72,7 +82,11 @@ export default function Home() {
         }
       />
       <BottomLeftInfo position={position} />
-      <TopRightTitles position={position} hoveredAlbum={hoveredAlbum} />
+      <TopRightTitles
+        onMobile={onMobile}
+        position={position}
+        hoveredAlbum={hoveredAlbum}
+      />
       <Crosshairs position={position} />
 
       {/* SCROLL CONTENT */}

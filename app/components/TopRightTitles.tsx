@@ -6,11 +6,13 @@ interface TopRightTitlesProps {
     y: number;
   };
   hoveredAlbum: string;
+  onMobile: boolean;
 }
 
 const TopRightTitles: React.FC<TopRightTitlesProps> = ({
   position,
   hoveredAlbum,
+  onMobile,
 }) => {
   return (
     <div className="relative md:fixed top-0 right-0 m-2" dir="rtl">
@@ -18,12 +20,13 @@ const TopRightTitles: React.FC<TopRightTitlesProps> = ({
         <span
           className="duration-100"
           style={{
-            opacity:
-              hoveredAlbum == "plus"
-                ? 0.25
-                : hoveredAlbum == "sign"
-                ? 1
-                : Math.max(0.25, 1 - position.x / 75),
+            opacity: onMobile
+              ? 1
+              : hoveredAlbum == "plus"
+              ? 0.25
+              : hoveredAlbum == "sign"
+              ? 1
+              : Math.max(0.25, 1 - position.x / 75),
           }}
         >
           SIGN
@@ -32,12 +35,13 @@ const TopRightTitles: React.FC<TopRightTitlesProps> = ({
         <span
           className="duration-100"
           style={{
-            opacity:
-              hoveredAlbum == "sign"
-                ? 0.25
-                : hoveredAlbum == "plus"
-                ? 1
-                : Math.min(1, 0.25 + (position.x / 75) * 0.75),
+            opacity: onMobile
+              ? 1
+              : hoveredAlbum == "sign"
+              ? 0.25
+              : hoveredAlbum == "plus"
+              ? 1
+              : Math.min(1, 0.25 + (position.x / 75) * 0.75),
           }}
         >
           PLUS
