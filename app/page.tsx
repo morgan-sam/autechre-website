@@ -4,6 +4,7 @@ import { useState, useEffect } from "react";
 import Image from "next/image";
 import PlusTrackListing from "@/app/components/PlusTrackListing";
 import SignTrackListing from "@/app/components/SignTrackListing";
+import Gradient from "@/app/components/Gradient";
 
 export default function Home() {
   const [position, setPosition] = useState({ x: 0, y: 0 });
@@ -24,6 +25,7 @@ export default function Home() {
 
   return (
     <main className="flex min-h-screen flex-col items-center pt-24 bg-[#48494b] overflow-hidden cursor-none">
+      <Gradient />
       <PlusTrackListing />
       <SignTrackListing />
       <div className="absolute bottom-0 left-0 m-2">
