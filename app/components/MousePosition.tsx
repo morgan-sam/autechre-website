@@ -22,8 +22,8 @@ const MousePosition = () => {
 
   return (
     <div>
-      <p>Mouse X: {position.x.toFixed(2)}%</p>
-      <p>Mouse Y: {position.y.toFixed(2)}%</p>
+      <p className="text-white">Mouse X: {position.x.toFixed(2)}%</p>
+      <p className="text-white">Mouse Y: {position.y.toFixed(2)}%</p>
     </div>
   );
 };

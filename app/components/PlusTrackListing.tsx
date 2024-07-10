@@ -31,7 +31,9 @@ const PlusTrackListing = () => {
             key={i}
             className={`${AminaFont.className} relative leading-[18px]`}
           >
-            <span className="text-[20px] tracking-[1px]">{el[0]}</span>
+            <span className="text-white text-[20px] tracking-[1px]">
+              {el[0]}
+            </span>
             {el.length > 1 ? (
               <span className="text-stone-500 absolute mx-1 text-[10px] tracking-[1px] top-[-4px] text-nowrap	">
                 ( {el[1]} )
