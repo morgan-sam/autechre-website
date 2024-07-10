@@ -1,6 +1,7 @@
 import Image from "next/image";
 import MousePosition from "@/app/components/MousePosition";
 import PlusTrackListing from "@/app/components/PlusTrackListing";
+import SignTrackListing from "@/app/components/SignTrackListing";
 
 export default function Home() {
   return (
@@ -16,6 +17,7 @@ export default function Home() {
           priority
         />
       </div>
+      <SignTrackListing />
       <MousePosition />
 
       <div className="mb-32 grid text-center lg:mb-0 lg:w-full lg:max-w-2xl lg:grid-cols-5">
