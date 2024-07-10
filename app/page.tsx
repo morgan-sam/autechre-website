@@ -12,6 +12,7 @@ import type { Product } from "shopify-buy";
 export default function Home() {
   const [products, setProducts] = useState([] as Product[]);
   const [position, setPosition] = useState({ x: 0, y: 0 });
+  const [hoveredAlbum, setHoveredAlbum] = useState("");
 
   useEffect(() => {
     const updateMousePosition = (event: any) => {
@@ -44,8 +45,24 @@ export default function Home() {
   return (
     <main className="flex min-h-screen flex-col items-center pt-4 md:pt-24 bg-[#48494b] overflow-hidden cursor-none">
       <Gradient />
-      <PlusTrackListing opacity={Math.min(1, 0.25 + position.x / 75)} />
-      <SignTrackListing opacity={Math.max(0.25, 1 - position.x / 75)} />
+      <SignTrackListing
+        opacity={
+          hoveredAlbum == "plus"
+            ? 0.25
+            : hoveredAlbum == "sign"
+            ? 1
+            : Math.max(0.25, 1 - position.x / 75)
+        }
+      />
+      <PlusTrackListing
+        opacity={
+          hoveredAlbum == "sign"
+            ? 0.25
+            : hoveredAlbum == "plus"
+            ? 1
+            : Math.min(1, 0.25 + (position.x / 75) * 0.75)
+        }
+      />
       <div className="fixed bottom-0 left-0 m-2 hidden md:block">
         <p className="font-mono text-white">
           MOUSE X: {position.x >= 10 ? null : "0"}
@@ -58,7 +75,31 @@ export default function Home() {
       </div>
       <div className="relative md:fixed top-0 right-0 m-2" dir="rtl">
         <h2 className="z-10 text-5xl font-semibold text-white tracking-[10px]">
-          SIGN / PLUS
+          <span
+            style={{
+              opacity:
+                hoveredAlbum == "plus"
+                  ? 0.25
+                  : hoveredAlbum == "sign"
+                  ? 1
+                  : Math.max(0.25, 1 - position.x / 75),
+            }}
+          >
+            SIGN
+          </span>
+          <span>/</span>
+          <span
+            style={{
+              opacity:
+                hoveredAlbum == "sign"
+                  ? 0.25
+                  : hoveredAlbum == "plus"
+                  ? 1
+                  : Math.min(1, 0.25 + (position.x / 75) * 0.75),
+            }}
+          >
+            PLUS
+          </span>
         </h2>
         <h2 className="pt-[0.1rem] z-10 text-2xl font-semibold text-white leading-[1rem] tracking-[11px]">
           RELEASE / TOUR
@@ -109,8 +150,10 @@ export default function Home() {
           ? products.map((product, i) => (
               <a
                 href={`https://${process.env.NEXT_PUBLIC_SHOPIFY_DOMAIN}/products/${product.handle}`}
-                className="text-white z-10 cursor-none group-hover:opacity-25 hover:!opacity-100 duration-300	"
+                className="text-white z-10 cursor-none group-hover:opacity-25 hover:!opacity-100 duration-200	"
                 key={i}
+                onMouseOver={() => setHoveredAlbum(product.handle)}
+                onMouseLeave={() => setHoveredAlbum("")}
               >
                 <Image
                   src={product.images[0].src}
