@@ -19,13 +19,13 @@ const Gradient = () => {
             id="gggrain-gradient2"
           >
             <stop
-              stop-color="hsla(194, 31%, 14%, 1.00)"
-              stop-opacity="1"
+              stopColor="hsla(194, 31%, 14%, 1.00)"
+              stopOpacity="1"
               offset="-0%"
             ></stop>
             <stop
-              stop-color="rgba(255,255,255,0)"
-              stop-opacity="0"
+              stopColor="rgba(255,255,255,0)"
+              stopOpacity="0"
               offset="100%"
             ></stop>
           </linearGradient>
@@ -37,10 +37,10 @@ const Gradient = () => {
             y2="100%"
             id="gggrain-gradient3"
           >
-            <stop stop-color="hsl(227, 61%, 12%)" stop-opacity="1"></stop>
+            <stop stopColor="hsl(227, 61%, 12%)" stopOpacity="1"></stop>
             <stop
-              stop-color="rgba(255,255,255,0)"
-              stop-opacity="0"
+              stopColor="rgba(255,255,255,0)"
+              stopOpacity="0"
               offset="100%"
             ></stop>
           </linearGradient>
@@ -52,7 +52,7 @@ const Gradient = () => {
             height="140%"
             filterUnits="objectBoundingBox"
             primitiveUnits="userSpaceOnUse"
-            color-interpolation-filters="sRGB"
+            colorInterpolationFilters="sRGB"
           >
             <feTurbulence
               type="fractalNoise"

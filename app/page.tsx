@@ -6,8 +6,11 @@ import PlusTrackListing from "@/app/components/PlusTrackListing";
 import SignTrackListing from "@/app/components/SignTrackListing";
 import Gradient from "@/app/components/Gradient";
 import TourList from "@/app/components/TourList";
+import Client from "shopify-buy";
+import type { Product } from "shopify-buy";
 
 export default function Home() {
+  const [products, setProducts] = useState([] as Product[]);
   const [position, setPosition] = useState({ x: 0, y: 0 });
 
   useEffect(() => {
@@ -22,6 +25,20 @@ export default function Home() {
     return () => {
       window.removeEventListener("mousemove", updateMousePosition);
     };
+  }, []);
+
+  useEffect(() => {
+    const client = Client.buildClient({
+      domain: process.env.NEXT_PUBLIC_SHOPIFY_DOMAIN || "",
+      storefrontAccessToken:
+        process.env.NEXT_PUBLIC_SHOPIFY_STOREFRONT_ACCESS_TOKEN || "",
+      apiVersion: "",
+    });
+
+    client.product.fetchAll().then((products) => {
+      console.log(products);
+      if (products) setProducts(products);
+    });
   }, []);
 
   return (
@@ -86,6 +103,26 @@ export default function Home() {
       />
 
       <TourList />
+
+      <div className="flex flex-row gap-8 mb-40">
+        {products.length > 0
+          ? products.map((product, i) => (
+              <div className="text-white z-10" key={i}>
+                <Image
+                  src={product.images[0].src}
+                  alt={product.title}
+                  width={300}
+                  height={300}
+                ></Image>
+                <h4>{product.title}</h4>
+                <h5>
+                  {parseFloat(`${product.variants[0].price.amount}`).toFixed(2)}{" "}
+                  {product.variants[0].price.currencyCode}
+                </h5>
+              </div>
+            ))
+          : null}
+      </div>
 
       <div
         style={{
