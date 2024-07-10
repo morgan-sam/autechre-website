@@ -30,7 +30,7 @@ const PlusTrackListing: React.FC<PlusTrackListingProps> = ({ opacity }) => {
   return (
     <ol
       style={{ opacity: opacity }}
-      className={`fixed bottom-0 right-0 flex flex-col m-2 opacity-25 md:opacity-100`}
+      className={`fixed bottom-0 right-0 flex flex-col m-2 opacity-25 md:opacity-100 duration-100`}
       dir="rtl"
     >
       {info.map((el, i) =>

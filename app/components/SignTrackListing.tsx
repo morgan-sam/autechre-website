@@ -33,7 +33,7 @@ const SignTrackListing: React.FC<SignTrackListingProps> = ({ opacity }) => {
   return (
     <ol
       style={{ opacity: opacity }}
-      className={`fixed top-0 left-0 flex flex-col m-2 opacity-25 md:opacity-100 md:mt-2`}
+      className={`fixed top-0 left-0 flex flex-col m-2 opacity-25 md:opacity-100 md:mt-2 duration-100`}
     >
       {info.map((el, i) =>
         el[0] != null ? (

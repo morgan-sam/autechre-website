@@ -79,6 +79,7 @@ export default function Home() {
       <div className="relative md:fixed top-0 right-0 m-2" dir="rtl">
         <h2 className="z-10 text-5xl font-semibold text-white tracking-[10px]">
           <span
+            className="duration-100"
             style={{
               opacity:
                 hoveredAlbum == "plus"
@@ -92,6 +93,7 @@ export default function Home() {
           </span>
           <span>/</span>
           <span
+            className="duration-100"
             style={{
               opacity:
                 hoveredAlbum == "sign"
