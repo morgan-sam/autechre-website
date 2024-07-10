@@ -48,7 +48,9 @@ const SignTrackListing: React.FC<SignTrackListingProps> = ({ opacity }) => {
               <span className="text-stone-500 absolute mx-1 text-[10px] tracking-[1px] top-[-4px] text-nowrap	">
                 ( {el[1]} )
               </span>
-            ) : null}
+            ) : (
+              <br />
+            )}
           </li>
         ) : (
           <br key={i} />
