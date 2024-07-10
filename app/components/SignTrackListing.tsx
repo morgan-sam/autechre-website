@@ -24,10 +24,17 @@ const signInfo = [
 
 import { useState, useEffect } from "react";
 
-const SignTrackListing = () => {
+type SignTrackListingProps = {
+  opacity: number;
+};
+
+const SignTrackListing: React.FC<SignTrackListingProps> = ({ opacity }) => {
   const [info, setInfo] = useState(signInfo);
   return (
-    <ol className="fixed top-0 left-0 flex flex-col m-2 opacity-25 md:opacity-100 md:mt-2">
+    <ol
+      style={{ opacity: opacity }}
+      className={`fixed top-0 left-0 flex flex-col m-2 opacity-25 md:opacity-100 md:mt-2`}
+    >
       {info.map((el, i) =>
         el[0] != null ? (
           <li

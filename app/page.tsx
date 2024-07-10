@@ -44,8 +44,8 @@ export default function Home() {
   return (
     <main className="flex min-h-screen flex-col items-center pt-4 md:pt-24 bg-[#48494b] overflow-hidden cursor-none">
       <Gradient />
-      <PlusTrackListing />
-      <SignTrackListing />
+      <PlusTrackListing opacity={Math.min(1, 0.25 + position.x / 75)} />
+      <SignTrackListing opacity={Math.max(0.25, 1 - position.x / 75)} />
       <div className="fixed bottom-0 left-0 m-2 hidden md:block">
         <p className="font-mono text-white">
           MOUSE X: {position.x >= 10 ? null : "0"}
@@ -104,10 +104,14 @@ export default function Home() {
 
       <TourList />
 
-      <div className="flex flex-row gap-8 mb-40">
+      <div className="flex flex-row gap-8 mb-40 group">
         {products.length > 0
           ? products.map((product, i) => (
-              <div className="text-white z-10" key={i}>
+              <a
+                href={`https://${process.env.NEXT_PUBLIC_SHOPIFY_DOMAIN}/products/${product.handle}`}
+                className="text-white z-10 cursor-none group-hover:opacity-25 hover:!opacity-100 duration-300	"
+                key={i}
+              >
                 <Image
                   src={product.images[0].src}
                   alt={product.title}
@@ -115,11 +119,17 @@ export default function Home() {
                   height={300}
                 ></Image>
                 <h4>{product.title}</h4>
+                <h5 className="line-through">
+                  {parseFloat(
+                    `${product.variants[0].compareAtPrice.amount}`
+                  ).toFixed(2)}{" "}
+                  {product.variants[0].compareAtPrice.currencyCode}
+                </h5>
                 <h5>
                   {parseFloat(`${product.variants[0].price.amount}`).toFixed(2)}{" "}
                   {product.variants[0].price.currencyCode}
                 </h5>
-              </div>
+              </a>
             ))
           : null}
       </div>
@@ -129,14 +139,14 @@ export default function Home() {
           top: `${position.y}%`,
         }}
         id="crosshair-x"
-        className="select-none z-[100] left-0 fixed w-screen	h-[1px] bg-white"
+        className="select-none pointer-events-none z-[100] left-0 fixed w-screen h-[1px] bg-white"
       ></div>
       <div
         style={{
           left: `${position.x}%`,
         }}
         id="crosshair-y"
-        className="select-none z-[100] top-0 fixed w-[1px] h-screen	bg-white"
+        className="select-none pointer-events-none z-[100] top-0 fixed w-[1px] h-screen	bg-white"
       ></div>
     </main>
   );

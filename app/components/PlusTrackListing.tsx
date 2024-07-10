@@ -21,11 +21,16 @@ const plusInfo = [
 ];
 import { useState, useEffect } from "react";
 
-const PlusTrackListing = () => {
+type PlusTrackListingProps = {
+  opacity: number;
+};
+
+const PlusTrackListing: React.FC<PlusTrackListingProps> = ({ opacity }) => {
   const [info, setInfo] = useState(plusInfo);
   return (
     <ol
-      className="fixed bottom-0 right-0 flex flex-col m-2 opacity-25 md:opacity-100"
+      style={{ opacity: opacity }}
+      className={`fixed bottom-0 right-0 flex flex-col m-2 opacity-25 md:opacity-100`}
       dir="rtl"
     >
       {info.map((el, i) =>
