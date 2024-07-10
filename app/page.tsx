@@ -54,7 +54,7 @@ export default function Home() {
       </div>
       <SignTrackListing />
 
-      <div>
+      <div className="absolute bottom-0 left-0 m-2">
         <p className="font-mono text-white">
           MOUSE X: {position.x >= 10 ? null : "0"}
           {position.x.toFixed(2)}%
