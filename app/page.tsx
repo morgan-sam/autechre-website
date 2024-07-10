@@ -21,11 +21,11 @@ export default function Home() {
       <MousePosition />
 
       <div className="mb-32 grid text-center lg:mb-0 lg:w-full lg:max-w-2xl lg:grid-cols-5">
-        <h2 className="mb-3 text-2xl font-semibold text-white">Plus</h2>
+        <h2 className="mb-3 text-2xl font-semibold text-white">SIGN</h2>
         <h2 className="mb-3 text-2xl font-semibold text-white">/</h2>
-        <h2 className="mb-3 text-2xl font-semibold text-white">Autechre</h2>
+        <h2 className="mb-3 text-2xl font-semibold text-white">AUTECHRE</h2>
         <h2 className="mb-3 text-2xl font-semibold text-white">/</h2>
-        <h2 className="mb-3 text-2xl font-semibold text-white">Sign</h2>
+        <h2 className="mb-3 text-2xl font-semibold text-white">PLUS</h2>
       </div>
     </main>
   );

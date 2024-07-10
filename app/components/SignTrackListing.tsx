@@ -4,27 +4,30 @@ import localFont from "next/font/local";
 
 const AminaFont = localFont({ src: "../../public/fonts/Amina-Medium.woff2" });
 
-const plusInfo = [
-  ["DekDre Scap B", "A1"],
-  ["7FM ic", "A2"],
-  ["marhide", "A3"],
-  ["ecol4", "B1"],
-  ["lux 106 mod", "C1"],
-  ["X4", "C2"],
-  ["ii.pre esc", "D1"],
-  ["esle 0", "D2"],
-  ["TM1 open", "D3"],
+const signInfo = [
+  ["M4 Lema", "A1"],
+  ["F7", "A2"],
+  ["si00", "B1"],
+  ["esc desc", "B2"],
+  ["au14", "B3"],
+  ["Metaz form8", "C1"],
+  ["sch.mefd 2", "C2"],
+  ["gr4", "C3"],
+  ["th red a", "D1"],
+  ["psin AM", "D2"],
+  ["r cazt", "D3"],
   [null],
-  ["warp lp 338"],
-  ["( lc ) 02070"],
-  ["0801061033811"],
+  ["warp lp 329"],
+  ["( lc )02070"],
+  ["0801061032913"],
 ];
+
 import { useState, useEffect } from "react";
 
 const SignTrackListing = () => {
-  const [info, setInfo] = useState(plusInfo);
+  const [info, setInfo] = useState(signInfo);
   return (
-    <ol className="absolute bottom-0 right-0 flex flex-col m-2" dir="rtl">
+    <ol className="absolute top-0 left-0 flex flex-col m-2">
       {info.map((el, i) =>
         el[0] != null ? (
           <li
