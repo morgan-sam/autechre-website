@@ -27,7 +27,24 @@ export default function Home() {
       <PlusTrackListing />
       <div className="relative z-[10] flex place-items-center flex-col">
         <Image
-          className="relative hue-rotate"
+          style={
+            {
+              // filter: `hue-rotate(${(position.y - 50) * 3.6}deg)`,
+            }
+          }
+          className="absolute"
+          src="/sign.svg"
+          alt="SIGN Logo"
+          width={600}
+          height={600}
+          priority
+        />
+        <Image
+          style={{
+            // filter: `hue-rotate(${(position.y - 50) * 3.6}deg)`,
+            opacity: `${position.x}%`,
+          }}
+          className="relative"
           src="/plus.svg"
           alt="PLUS Logo"
           width={600}
@@ -39,11 +56,11 @@ export default function Home() {
 
       <div>
         <p className="font-mono text-white">
-          Mouse X: {position.x >= 10 ? null : "0"}
+          MOUSE X: {position.x >= 10 ? null : "0"}
           {position.x.toFixed(2)}%
         </p>
         <p className="font-mono text-white">
-          Mouse Y: {position.y >= 10 ? null : "0"}
+          MOUSE Y: {position.y >= 10 ? null : "0"}
           {position.y.toFixed(2)}%
         </p>
       </div>
