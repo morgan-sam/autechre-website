@@ -1,9 +1,12 @@
 import Image from "next/image";
+import MousePosition from "@/app/components/MousePosition";
+import PlusTrackListing from "@/app/components/PlusTrackListing";
 
 export default function Home() {
   return (
     <main className="flex min-h-screen flex-col items-center justify-between p-24">
-      <div className="relative z-[-1] flex place-items-center">
+      <PlusTrackListing />
+      <div className="relative z-[-1] flex place-items-center flex-col">
         <Image
           className="relative hue-rotate"
           src="/plus.svg"
@@ -13,11 +16,14 @@ export default function Home() {
           priority
         />
       </div>
+      <MousePosition />
 
-      <div className="mb-32 grid text-center lg:mb-0 lg:w-full lg:max-w-5xl lg:grid-cols-3">
+      <div className="mb-32 grid text-center lg:mb-0 lg:w-full lg:max-w-2xl lg:grid-cols-5">
+        <h2 className="mb-3 text-2xl font-semibold">Plus</h2>
+        <h2 className="mb-3 text-2xl font-semibold">/</h2>
         <h2 className="mb-3 text-2xl font-semibold">Autechre</h2>
-        <h2 className="mb-3 text-2xl font-semibold">Autechre</h2>
-        <h2 className="mb-3 text-2xl font-semibold">Autechre</h2>
+        <h2 className="mb-3 text-2xl font-semibold">/</h2>
+        <h2 className="mb-3 text-2xl font-semibold">Sign</h2>
       </div>
     </main>
   );
