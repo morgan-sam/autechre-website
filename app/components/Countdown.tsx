@@ -67,7 +67,9 @@ const Countdown: React.FC<CountdownProps> = ({ targetDate }) => {
   return timerComponents.length != 0 ? (
     <div className="font-mono text-white text-2xl tracking-[0px]">
       {timerComponents.length ? (
-        <h3>SALE ENDS IN: {timerComponents.reverse()}</h3>
+        <h3 className="flex flex-col">
+          <span>SALE ENDS IN:</span> <span>{timerComponents.reverse()}</span>
+        </h3>
       ) : (
         <span>SALE IS COMPLETE</span>
       )}
