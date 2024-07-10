@@ -11,6 +11,7 @@ import TourList from "@/app/components/TourList";
 import Crosshairs from "@/app/components/Crosshairs";
 import TopRightTitles from "@/app/components/TopRightTitles";
 import BottomLeftInfo from "@/app/components/BottomLeftInfo";
+import Footer from "@/app/components/Footer";
 
 import Client from "shopify-buy";
 import type { Product } from "shopify-buy";
@@ -103,7 +104,6 @@ export default function Home() {
           priority
         />
       </div>
-
       <Image
         className="relative invert pt-[3rem]"
         src="/logo.svg"
@@ -112,9 +112,7 @@ export default function Home() {
         height={300}
         priority
       />
-
       <TourList />
-
       <div className="flex flex-col md:flex-row gap-8 mb-40 group">
         {products.length > 0
           ? products.map((product, i) => (
@@ -146,6 +144,7 @@ export default function Home() {
             ))
           : null}
       </div>
+      <Footer />
     </main>
   );
 }
