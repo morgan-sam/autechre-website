@@ -1,6 +1,9 @@
-# https://hifilabs-takehome.pages.dev/
+# Deployed on Cloudflare Pages at:
+[autechre-website.pages.dev](autechre-website.pages.dev)
 
+<br>
 
+# Readme
 
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
