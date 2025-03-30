@@ -1,5 +1,5 @@
 # Deployed on Cloudflare Pages at:
-[autechre-website.pages.dev](autechre-website.pages.dev)
+[autechre-website.pages.dev](http://autechre-website.pages.dev)
 
 <br>
 
